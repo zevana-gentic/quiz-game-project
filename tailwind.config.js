@@ -12,7 +12,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                "source-poppins": ["Poppins"],
+                "source-potta-one": ["Potta One"],
+                "source-pt-mono": ["PT Mono"],
             },
         },
     },

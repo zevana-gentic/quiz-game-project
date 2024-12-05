@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('option_key', 100)->nullable();
             $table->text('option_value')->nullable();
             $table->timestamps();
+
+            $table->foreign('question_id')->references('id')->on('questions');
         });
     }
 

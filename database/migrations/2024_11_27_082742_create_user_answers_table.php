@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('answer', 100)->nullable();
             $table->integer('score')->nullable();
             $table->timestamps();
+
+            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

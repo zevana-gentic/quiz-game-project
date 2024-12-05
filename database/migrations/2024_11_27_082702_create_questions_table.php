@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('question_value')->nullable();
             $table->string('answer_key', 100)->nullable();
             $table->text('discussion')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
