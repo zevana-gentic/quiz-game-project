@@ -4,7 +4,7 @@
 <div class="pt-[90px] px-[50px]">
     <div class="mb-[40px]">
         <div class="flex justify-end">
-            <a href="">
+            <a href="{{ route('home') }}">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_107_2)">
                     <circle cx="24" cy="20" r="20" fill="#598FEB"/>

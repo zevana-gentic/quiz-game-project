@@ -7,7 +7,7 @@
         <div class="pt-0 mt-0 text-[40px] text-[#747474]"><b>to Play!</b></div>
     </div>
 
-    <form action="" method="POST" class="mt-9 space-y-4">
+    <form action="{{ route('home') }}" method="GET" class="mt-9 space-y-4">
         @csrf
         <div class="relative">
             <input type="email" placeholder="Email" name="email" value="{{ old('email') }}" class="relative h-[60px] z-0 w-full text-white bg-[#81AEFC] rounded-[20px] px-4 pl-10 py-3 outline-0 placeholder:text-white" />
@@ -28,7 +28,7 @@
             </button>
         </div>
         <div class="text-center text-[#464646]">
-            Belum punya akun? <a href="#" class="text-[#0083D4]">Register</a>
+            Belum punya akun? <a href="#" class="text-[#0083D4]"><a href="{{ route('register') }}">Register</a></a>
         </div>
     </form>
 </div>

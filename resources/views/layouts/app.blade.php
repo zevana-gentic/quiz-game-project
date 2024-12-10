@@ -22,7 +22,7 @@
 
 <body class="relative font-source-poppins min-h-screen">
 
-    <div class="mb-32 relative min-h-screen overflow-x-hidden container w-full max-w-md mx-auto h-full bg-white border-8 container-color">
+    <div class="mb-32 relative min-h-screen overflow-x-hidden container w-full max-w-md mx-auto h-full bg-white container-color">
         <main class="relative z-10">
             @yield('content')
         </main>

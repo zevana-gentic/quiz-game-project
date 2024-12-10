@@ -19,7 +19,7 @@
         <a href="{{ route('home') }}" class="py-4 block text-center w-full h-[60px] bg-[#5F97F8] rounded-[20px] text-white px-4 rounded-2lg">
             Home
         </a>
-        <a href="" class="py-4 block text-center w-full h-[60px] bg-[#09B7FC] rounded-[20px] text-white px-4 rounded-2lg">
+        <a href="{{ route('quiz') }}" class="py-4 block text-center w-full h-[60px] bg-[#09B7FC] rounded-[20px] text-white px-4 rounded-2lg">
             Play Again
         </a>
     </div>

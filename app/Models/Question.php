@@ -14,7 +14,8 @@ class Question extends Model
         'category',
         'question_value',
         'answer_key',
-        'discussion'
+        'discussion',
+        'image'
     ];
 
     public function options()

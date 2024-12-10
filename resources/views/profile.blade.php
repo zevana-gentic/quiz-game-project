@@ -110,7 +110,7 @@
                 </div>
             </div>
         </a>
-        <a href="" class="block">
+        <a href="{{ route('score-history') }}" class="block">
             <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px]">
                 <div class="w-full h-full flex items-center">
                     <div class="ml-[30px] mr-[30px]">

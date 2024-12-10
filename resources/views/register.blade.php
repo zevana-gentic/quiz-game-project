@@ -40,6 +40,9 @@
                 Register
             </button>
         </div>
+        <div class="text-center text-[#464646]">
+            Sudah punya akun? <a href="#" class="text-[#0083D4]"><a href="{{ route('login') }}">Login</a></a>
+        </div>
     </form>
 </div>
 @endsection
