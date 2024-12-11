@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="pt-[110px] px-[50px]">
-    <div class="mb-[80px]">
-        <img src="https://placehold.co/350x250" alt="">
+    <div class="mb-[80px] flex items-center justify-center">
+        <img src="{{ asset('assets/logo.png') }}" height="150" alt="">
     </div>
 
     <div class="space-y-4 mb-[100px]">

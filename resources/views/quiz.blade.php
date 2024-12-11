@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="pt-[90px] px-[50px]">
+<div class="pt-[40px] px-[50px]">
     <div class="relative flex justify-center">
         <div class="absolute left-0 top-1/4">
             <a href="">
@@ -86,7 +86,19 @@
     </div>
 
     <div class="flex justify-center items-center my-[30px]">
-        <img src="https://placehold.co/300x300" alt="">
+        <div class="relative mt-[135px]">
+            <div class="absolute top-[-120px] left-[125px] animate-up-down-v2">
+                <img src="{{ asset('assets/bubble-lg.png') }}" width="138" height="100" alt="">
+            </div>
+            <div class="absolute top-[-30px] left-[100px] animate-up-down">
+                <img src="{{ asset('assets/bubble-md.png') }}" width="30" height="30" alt="">
+            </div>
+            <div class="absolute left-1/2 animate-up-down">
+                <img src="{{ asset('assets/bubble-sm.png') }}" width="20" height="20" alt="">
+            </div>
+            <img src="{{ asset('assets/cat.png') }}" width="280" height="174" alt="">
+        </div>
+        {{-- <img src="https://placehold.co/300x300" alt=""> --}}
         {{-- <img src="{{ asset('assets/giphy.webp') }}" alt=""> --}}
     </div>
 

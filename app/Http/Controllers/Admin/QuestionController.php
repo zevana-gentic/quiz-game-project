@@ -41,15 +41,15 @@ class QuestionController extends Controller
             'image.mimes'               => 'Format file salah. Format file harus JPG atau PNG.',
             'image.max'                 => 'Ukuran file terlalu besar. Ukuran maksimum file adalah 2MB (2048KB).',
             'question_value.required'   => 'Pertanyaan harus diisi.',
-            'question_value.required'   => 'Pilihan Jawaban harus diisi.',
-            'question_value.required'   => 'Kunci Jawaban harus dipilih.',
+            'option_value.required'     => 'Pilihan Jawaban harus diisi.',
+            'answer_key.required'       => 'Kunci Jawaban harus dipilih.',
         ]);
 
         if ($validator->fails()) {
             return redirect()->route('question.add')
                 ->withErrors($validator)
                 ->withInput()
-                ->with('error', 'Terjadi kesalahan saat pengisian form. Data yang masih salah akan ditandai dengan tulisan merah, silahkan cek kembali form Anda.');
+                ->with(['error' => 'Lengkapi Data']);
         }
 
         try {
@@ -95,12 +95,12 @@ class QuestionController extends Controller
 
             DB::commit();
 
-            return redirect()->route('question.list')->with(['success' => '']);
+            return redirect()->route('question.add')->with(['success' => 'Berhasil Menambahkan Data Kuis']);
         } catch (Exception $e) {
             DB::rollback();
             File::delete('./uploads/' . $data['image']);
 
-            return redirect()->route('question.add')>with(['error' => '']);
+            return redirect()->route('question.add')>with(['error' => 'Lengkapi Data']);
         }
 
     }
@@ -125,15 +125,15 @@ class QuestionController extends Controller
             'image.mimes'               => 'Format file salah. Format file harus JPG atau PNG.',
             'image.max'                 => 'Ukuran file terlalu besar. Ukuran maksimum file adalah 2MB (2048KB).',
             'question_value.required'   => 'Pertanyaan harus diisi.',
-            'question_value.required'   => 'Pilihan Jawaban harus diisi.',
-            'question_value.required'   => 'Kunci Jawaban harus dipilih.',
+            'option_value.required'     => 'Pilihan Jawaban harus diisi.',
+            'answer_key.required'       => 'Kunci Jawaban harus dipilih.',
         ]);
 
         if ($validator->fails()) {
             return redirect()->route('question.edit' , ['question_id' => $question_id])
                 ->withErrors($validator)
                 ->withInput()
-                ->with('error', 'Terjadi kesalahan saat pengisian form. Data yang masih salah akan ditandai dengan tulisan merah, silahkan cek kembali form Anda.');
+                ->with(['error' => 'Terjadi Kesalahan']);
         }
 
         $question = Question::find($question_id);
@@ -182,7 +182,7 @@ class QuestionController extends Controller
         $option[2]->update($data_option3);
 
 
-        return redirect()->route('question.edit', ['question_id' => $question->id])->with(['success' => '']);
+        return redirect()->route('question.edit', ['question_id' => $question->id])->with(['success' => 'Berhasil Mengubah Data Kuis']);
     }
 
     public function question_delete($question_id, Request $request)
@@ -198,6 +198,6 @@ class QuestionController extends Controller
 
         $question->delete();
 
-        return redirect()->route('question.list')->with(['success' => '']);
+        return redirect()->route('question.list')->with(['success' => 'Berhasil Menghapus Data Kuis']);
     }
 }
