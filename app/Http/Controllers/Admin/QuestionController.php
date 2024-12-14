@@ -33,7 +33,7 @@ class QuestionController extends Controller
     public function question_submit(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'question_value'            => 'required',
+            // 'question_value'            => 'required',
             'option_value'              => 'required',
             'answer_key'                => 'required',
             'image'                     => 'mimes:jpg,jpeg,png|max:2048',
@@ -117,7 +117,7 @@ class QuestionController extends Controller
     public function question_update($question_id, Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'question_value'            => 'required',
+            // 'question_value'            => 'required',
             'option_value'              => 'required',
             'answer_key'                => 'required',
             'image'                     => 'mimes:jpg,jpeg,png|max:2048',

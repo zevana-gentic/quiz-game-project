@@ -25,27 +25,32 @@ export default {
                 'down-up': 'downUp 5s ease-in-out infinite',
                 'grow': 'grow 5s ease-in-out infinite',
                 'grow-once': 'growOnce 3s ease-in-out forwards',
+                scaleUp: 'scaleUp 0.5s ease-out forwards'
               },
             keyframes: {
                 wiggle: {
                   '0%, 100%': { transform: 'rotate(-5deg)' },
-                  '50%': { transform: 'rotate(5deg)' },
+                  '50%': { transform: 'rotate(5deg)' }
                 },
                 upDown: {
                   '0%, 100%': { transform: 'translateY(-25%)' },
-                  '50%': { transform: 'translateY(25%)' },
+                  '50%': { transform: 'translateY(25%)' }
                 },
                 upDownV2: {
                   '0%, 100%': { transform: 'translateY(-12%)' },
-                  '50%': { transform: 'translateY(12%)' },
+                  '50%': { transform: 'translateY(12%)' }
                 },
                 grow: {
                   '20%': { transform: 'scale(0.0)' },
-                  '100%': { transform: 'scale(1)' },
+                  '100%': { transform: 'scale(1)' }
                 },
                 growOnce: {
                   '0%': { transform: 'scale(0.0)' },
-                  '100%': { transform: 'scale(1)' },
+                  '100%': { transform: 'scale(1)' }
+                },
+                scaleUp: {
+                    '0%': { transform: 'scale(0.25)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
                 },
               }
         },

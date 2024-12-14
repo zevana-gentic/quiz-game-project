@@ -15,14 +15,14 @@
                             <img src="{{ asset('assets/avatar.png') }}" width="80" alt="">
                         </div>
                         <div class="info text-center">
-                            <p class="name font-weight-bold mb-0">Amiah Burton</p>
-                            <p class="email text-muted mb-3">amiahburton@gmail.com</p>
+                            <p class="name font-weight-bold mb-0">{{ @Auth::user()->name }}</p>
+                            <p class="email text-muted mb-3">{{ @Auth::user()->email }}</p>
                         </div>
                     </div>
                     <div class="dropdown-body">
                         <ul class="profile-nav p-0 pt-3">
                             <li class="nav-item">
-                                <a href="javascript:;" class="nav-link">
+                                <a href="{{ route('logout') }}" class="nav-link">
                                     <i data-feather="log-out"></i>
                                     <span>Logout</span>
                                 </a>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('nobbleui') }}/assets/fonts/feather-font/css/iconfont.css">
     <link rel="stylesheet" href="{{ asset('nobbleui') }}/assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="{{ asset('nobbleui') }}/assets/css/demo_1/style.css">
-    <link rel="shortcut icon" href="{{ asset('nobbleui') }}/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" />
 </head>
 
 <body>

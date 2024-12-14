@@ -7,8 +7,8 @@
     </div>
 
     <div class="space-y-4 mb-[100px]">
-        <a href="{{ route('instruction') }}" class="block">
-            <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px]">
+        <a href="{{ route('show.instruction') }}" class="block animate-scaleUp">
+            <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px] transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
                 <div class="w-full h-full flex items-center">
                     <div class="ml-[30px] mr-[30px]">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +34,8 @@
                 </div>
             </div>
         </a>
-        <a href="{{ route('profile') }}" class="block">
-            <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px]">
+        <a href="{{ route('profile.index') }}" class="block animate-scaleUp">
+            <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px] transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
                 <div class="w-full h-full flex items-center">
                     <div class="ml-[30px] mr-[30px]">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,8 +61,8 @@
                 </div>
             </div>
         </a>
-        <a href="{{ route('login') }}" class="block">
-            <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px]">
+        <a href="{{ route('logout') }}" class="block animate-scaleUp">
+            <div class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px] transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
                 <div class="w-full h-full flex items-center">
                     <div class="ml-[30px] mr-[30px]">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

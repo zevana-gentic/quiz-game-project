@@ -200,18 +200,20 @@
                     </div>
                 </div>
                 <div class="d-flex flex-column">
-                    <a href="#" class="d-flex align-items-center pb-3">
-                        <div class="mr-3">
-                            <img src="{{ asset('assets/avatar.png') }}" class="rounded-circle wd-35" alt="user">
-                        </div>
-                        <div class="w-100">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="text-body mb-2">Arif Setiawan</h6>
+                    @foreach ($users as $user)
+                        <a href="#" class="d-flex align-items-center {{ @$loop->first ? 'pb-3' : 'py-3' }}">
+                            <div class="mr-3">
+                                <img src="{{ asset('assets/avatar.png') }}" class="rounded-circle wd-35" alt="user">
                             </div>
-                            <p class="text-muted tx-13">arif.setiawan2209@gmail.com</p>
-                        </div>
-                    </a>
-                    <a href="#" class="d-flex align-items-center py-3">
+                            <div class="w-100">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="text-body mb-2">{{ @$user->name }}</h6>
+                                </div>
+                                <p class="text-muted tx-13">{{ @$user->email }}</p>
+                            </div>
+                        </a>
+                    @endforeach
+                    {{-- <a href="#" class="d-flex align-items-center py-3">
                         <div class="mr-3">
                             <img src="{{ asset('assets/avatar.png') }}" class="rounded-circle wd-35" alt="user">
                         </div>
@@ -287,7 +289,7 @@
                             </div>
                             <p class="text-muted tx-13">serlan_adi@gmail.com</p>
                         </div>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
@@ -307,7 +309,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            @foreach ($questions as $question)
+                                <tr>
+                                    <td>{{ @$loop->iteration }}</td>
+                                    <td style="white-space: normal;">
+                                        <div class="" style="max-width: 450px;">
+                                            {{ @$question->question_value }}
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            {{-- <tr>
                                 <td>1</td>
                                 <td>I have __________ my homework already.</td>
                             </tr>
@@ -331,7 +343,7 @@
                             <tr>
                                 <td class="border-bottom">5</td>
                                 <td class="border-bottom">Choose the correct antonym for the word "difficult":</td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

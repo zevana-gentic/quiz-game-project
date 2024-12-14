@@ -24,7 +24,7 @@
                 <p class="text-[#5D5D5D] text-justify">Pada halaman ini kalian bisa mulai membaca soal yang tersedia dan bisa memilih jawaban yang benar</p>
             </div>
             <div class="container">
-                <button type="button" class="next-btn w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-2.5 rounded-2lg">
+                <button type="button" class="next-btn w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-2.5 rounded-2lg transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
                     Next
                 </button>
             </div>
@@ -47,7 +47,7 @@
                 </ol>
             </div>
             <div class="container">
-                <button type="button" class="next-btn w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-2.5 rounded-2lg">
+                <button type="button" class="next-btn w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-2.5 rounded-2lg transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
                     Next
                 </button>
             </div>
@@ -66,7 +66,7 @@
                 <p class="text-[#5D5D5D] text-justify">Lakukan submit data apabila sudah selesai mengerjakan kuis.</p>
             </div>
             <div class="container">
-                <button type="button" class="next-btn w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-2.5 rounded-2lg">
+                <button type="button" class="next-btn w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-2.5 rounded-2lg transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
                     Next
                 </button>
             </div>
@@ -85,8 +85,8 @@
                 <p class="text-[#5D5D5D] text-justify">Setelah melakukan submit skor akan langsung ditampilkan.</p>
             </div>
             <div class="container">
-                <a href="{{ route('quiz') }}" class="block w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-4 rounded-2lg text-center">
-                    Next
+                <a href="{{ route('quiz.start', ['view' => 0]) }}" class="block w-full h-[60px] bg-[#3C84FF] rounded-[20px] text-white px-4 py-4 rounded-2lg text-center transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
+                    Mulai Kuis
                 </a>
             </div>
         </div>
