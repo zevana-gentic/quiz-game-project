@@ -121,44 +121,72 @@
         </div>
     @endif
 
+    {{-- <div class="space-y-4 mb-[80px]">
+        <div id="radio-group" class="flex flex-col gap-4">
+            @foreach ($questions[$_GET['view']]->options as $index => $option)
+                <label class="block relative cursor-pointer">
+                    <!-- Input radio -->
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="{{ $option->option_key }}"
+                        data-question-id="{{ $questions[$_GET['view']]->id }}"
+                        {{ \App\Helpers\AppHelper::get_user_answer($questions[$_GET['view']]->id) == $option->option_key ? 'checked' : '' }}
+                        class="peer hidden answer-button"
+                    />
+                    <!-- Tampilan elemen radio -->
+                    <div class="py-4 text-center w-full h-[60px] bg-[#5F97F8] text-white rounded-[20px] transform transition-transform duration-200 ease-in-out peer-checked:bg-[#09B7FC] peer-checked:text-white hover:scale-105 active:scale-95">
+                        {{ $option->option_value }}
+                        <!-- SVG yang tampil saat radio button dipilih -->
+                        <div class="absolute right-8 top-1/2 transform -translate-y-1/2 peer-checked:block hidden">
+                            <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Isi SVG di sini -->
+                                <path
+                                    d="M5.33348 23.32C5.33348 23.05 5.30348 22.93 5.18348 22.93L4.49348 23.26C4.49348 23.11 4.40348 23.02 4.25348 22.96L4.01348 22.93C3.80348 22.93 3.71348 22.96 3.41348 23.14C3.32348 22.96 3.20348 22.75 3.11348 22.57C2.33348 21.07 1.52348 18.82 1.16348 17.83C0.983477 17.32 0.803477 16.27 0.593477 14.68C0.833477 14.83 1.01348 14.89 1.10348 14.89C1.22348 14.89 1.37348 14.68 1.49348 14.26C1.55348 14.35 1.67348 14.38 1.82348 14.38C1.91348 14.38 2.03348 14.35 2.09348 14.26L2.57348 13.54L3.11348 13.72H3.14348C3.20348 13.72 3.29348 13.63 3.44348 13.54C3.59348 13.45 3.71348 13.39 3.80348 13.39L3.89348 13.42C4.37348 13.66 4.70348 14.08 4.85348 14.74C5.21348 16.27 5.54348 17.02 5.93348 17.02C6.26348 17.02 6.71348 16.63 7.19348 15.88C7.67348 15.13 8.15348 14.11 8.69348 12.88C8.72348 13.12 8.75348 13.24 8.81348 13.24C8.99348 13.24 9.44348 12.19 10.5535 10.42C12.2035 7.75 16.2835 2.62 17.3335 1.9C18.1135 1.36 18.7135 0.849999 19.1335 0.399999C19.0735 0.699999 19.0135 0.91 19.0135 0.999999C19.0135 1.09 19.0735 1.12 19.1335 1.12L19.9735 0.699999V0.819999C19.9735 0.969999 20.0035 1.06 20.0935 1.06C20.2135 1.06 20.6935 0.579999 20.7535 0.399999L20.6935 0.819999L21.7135 0.22L21.4735 0.76C21.7735 0.549999 22.0135 0.429999 22.1635 0.429999C22.3135 0.429999 22.4035 0.669999 22.4035 0.819999C22.4035 1.06 22.1935 1.39 21.8635 1.81C21.5035 2.29 20.6035 3.22 17.9035 6.31C16.7335 7.63 11.5435 14.68 10.5535 16.36L8.69348 19.51C7.88348 20.86 7.37348 21.73 7.10348 22.06C6.83348 22.39 6.50348 22.72 6.11348 23.02L5.84348 22.87L5.60348 23.02L5.33348 23.32Z"
+                                    fill="white"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </label>
+            @endforeach
+        </div>
+    </div> --}}
+
     <div class="space-y-4 mb-[80px]">
         <div id="radio-group" class="flex flex-col gap-4">
-            <label class="block relative cursor-pointer">
-                <input type="radio" name="answer" value="{{ @$questions[$_GET['view']]->options[0]->option_key }}" data-question-id="{{ @$questions[$_GET['view']]->id }}" {{ \App\Helpers\AppHelper::get_user_answer(@$_GET['view'] ? $questions[$_GET['view']]->id : $questions->first()->id) == @$questions[$_GET['view']]->options[0]->option_key ? 'checked' : '' }} class="peer hidden answer-button" />
-                <div class="peer-checked:bg-[#09B7FC] peer-checked:text-white py-4 block text-center w-full h-[60px] bg-[#5F97F8] rounded-[20px] text-white transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
-                    {{ @$questions[$_GET['view']]->options[0]->option_value }}
-                    <div class="absolute right-8 top-1/2 transform -translate-y-1/2" style="display: none;">
-                        <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.33348 23.32C5.33348 23.05 5.30348 22.93 5.18348 22.93L4.49348 23.26C4.49348 23.11 4.40348 23.02 4.25348 22.96L4.01348 22.93C3.80348 22.93 3.71348 22.96 3.41348 23.14C3.32348 22.96 3.20348 22.75 3.11348 22.57C2.33348 21.07 1.52348 18.82 1.16348 17.83C0.983477 17.32 0.803477 16.27 0.593477 14.68C0.833477 14.83 1.01348 14.89 1.10348 14.89C1.22348 14.89 1.37348 14.68 1.49348 14.26C1.55348 14.35 1.67348 14.38 1.82348 14.38C1.91348 14.38 2.03348 14.35 2.09348 14.26L2.57348 13.54L3.11348 13.72H3.14348C3.20348 13.72 3.29348 13.63 3.44348 13.54C3.59348 13.45 3.71348 13.39 3.80348 13.39L3.89348 13.42C4.37348 13.66 4.70348 14.08 4.85348 14.74C5.21348 16.27 5.54348 17.02 5.93348 17.02C6.26348 17.02 6.71348 16.63 7.19348 15.88C7.67348 15.13 8.15348 14.11 8.69348 12.88C8.72348 13.12 8.75348 13.24 8.81348 13.24C8.99348 13.24 9.44348 12.19 10.5535 10.42C12.2035 7.75 16.2835 2.62 17.3335 1.9C18.1135 1.36 18.7135 0.849999 19.1335 0.399999C19.0735 0.699999 19.0135 0.91 19.0135 0.999999C19.0135 1.09 19.0735 1.12 19.1335 1.12L19.9735 0.699999V0.819999C19.9735 0.969999 20.0035 1.06 20.0935 1.06C20.2135 1.06 20.6935 0.579999 20.7535 0.399999L20.6935 0.819999L21.7135 0.22L21.4735 0.76C21.7735 0.549999 22.0135 0.429999 22.1635 0.429999C22.3135 0.429999 22.4035 0.669999 22.4035 0.819999C22.4035 1.06 22.1935 1.39 21.8635 1.81C21.5035 2.29 20.6035 3.22 17.9035 6.31C16.7335 7.63 11.5435 14.68 10.5535 16.36L8.69348 19.51C7.88348 20.86 7.37348 21.73 7.10348 22.06C6.83348 22.39 6.50348 22.72 6.11348 23.02L5.84348 22.87L5.60348 23.02L5.33348 23.32Z" fill="white"/>
-                        </svg>
+            @foreach ($questions[$_GET['view']]->options as $index => $option)
+                <label class="block relative cursor-pointer">
+                    <!-- Input radio -->
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="{{ $option->option_key }}"
+                        data-question-id="{{ $questions[$_GET['view']]->id }}"
+                        {{ \App\Helpers\AppHelper::get_user_answer($questions[$_GET['view']]->id) == $option->option_key ? 'checked' : '' }}
+                        class="answer-button hidden"
+                    />
+                    <!-- Tampilan elemen radio -->
+                    <div class="py-4 text-center w-full h-[60px] bg-[#5F97F8] text-white rounded-[20px] transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
+                        {{ $option->option_value }}
+                        <!-- SVG yang tampil saat radio button dipilih -->
+                        <div class="absolute right-8 top-1/2 transform -translate-y-1/2 svg-container" style="display: none;">
+                            <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Isi SVG di sini -->
+                                <path
+                                    d="M5.33348 23.32C5.33348 23.05 5.30348 22.93 5.18348 22.93L4.49348 23.26C4.49348 23.11 4.40348 23.02 4.25348 22.96L4.01348 22.93C3.80348 22.93 3.71348 22.96 3.41348 23.14C3.32348 22.96 3.20348 22.75 3.11348 22.57C2.33348 21.07 1.52348 18.82 1.16348 17.83C0.983477 17.32 0.803477 16.27 0.593477 14.68C0.833477 14.83 1.01348 14.89 1.10348 14.89C1.22348 14.89 1.37348 14.68 1.49348 14.26C1.55348 14.35 1.67348 14.38 1.82348 14.38C1.91348 14.38 2.03348 14.35 2.09348 14.26L2.57348 13.54L3.11348 13.72H3.14348C3.20348 13.72 3.29348 13.63 3.44348 13.54C3.59348 13.45 3.71348 13.39 3.80348 13.39L3.89348 13.42C4.37348 13.66 4.70348 14.08 4.85348 14.74C5.21348 16.27 5.54348 17.02 5.93348 17.02C6.26348 17.02 6.71348 16.63 7.19348 15.88C7.67348 15.13 8.15348 14.11 8.69348 12.88C8.72348 13.12 8.75348 13.24 8.81348 13.24C8.99348 13.24 9.44348 12.19 10.5535 10.42C12.2035 7.75 16.2835 2.62 17.3335 1.9C18.1135 1.36 18.7135 0.849999 19.1335 0.399999C19.0735 0.699999 19.0135 0.91 19.0135 0.999999C19.0135 1.09 19.0735 1.12 19.1335 1.12L19.9735 0.699999V0.819999C19.9735 0.969999 20.0035 1.06 20.0935 1.06C20.2135 1.06 20.6935 0.579999 20.7535 0.399999L20.6935 0.819999L21.7135 0.22L21.4735 0.76C21.7735 0.549999 22.0135 0.429999 22.1635 0.429999C22.3135 0.429999 22.4035 0.669999 22.4035 0.819999C22.4035 1.06 22.1935 1.39 21.8635 1.81C21.5035 2.29 20.6035 3.22 17.9035 6.31C16.7335 7.63 11.5435 14.68 10.5535 16.36L8.69348 19.51C7.88348 20.86 7.37348 21.73 7.10348 22.06C6.83348 22.39 6.50348 22.72 6.11348 23.02L5.84348 22.87L5.60348 23.02L5.33348 23.32Z"
+                                    fill="white"
+                                />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-            </label>
-
-            <label class="block relative cursor-pointer">
-                <input type="radio" name="answer" value="{{ @$questions[$_GET['view']]->options[1]->option_key }}" data-question-id="{{ @$questions[$_GET['view']]->id }}" {{ \App\Helpers\AppHelper::get_user_answer(@$_GET['view'] ? $questions[$_GET['view']]->id : $questions->first()->id) == @$questions[$_GET['view']]->options[1]->option_key ? 'checked' : '' }} class="peer hidden answer-button" />
-                <div class="peer-checked:bg-[#09B7FC] peer-checked:text-white py-4 block text-center w-full h-[60px] bg-[#5F97F8] rounded-[20px] text-white transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
-                    {{ @$questions[$_GET['view']]->options[1]->option_value }}
-                    <div class="absolute right-8 top-1/2 transform -translate-y-1/2" style="display: none;">
-                        <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.33348 23.32C5.33348 23.05 5.30348 22.93 5.18348 22.93L4.49348 23.26C4.49348 23.11 4.40348 23.02 4.25348 22.96L4.01348 22.93C3.80348 22.93 3.71348 22.96 3.41348 23.14C3.32348 22.96 3.20348 22.75 3.11348 22.57C2.33348 21.07 1.52348 18.82 1.16348 17.83C0.983477 17.32 0.803477 16.27 0.593477 14.68C0.833477 14.83 1.01348 14.89 1.10348 14.89C1.22348 14.89 1.37348 14.68 1.49348 14.26C1.55348 14.35 1.67348 14.38 1.82348 14.38C1.91348 14.38 2.03348 14.35 2.09348 14.26L2.57348 13.54L3.11348 13.72H3.14348C3.20348 13.72 3.29348 13.63 3.44348 13.54C3.59348 13.45 3.71348 13.39 3.80348 13.39L3.89348 13.42C4.37348 13.66 4.70348 14.08 4.85348 14.74C5.21348 16.27 5.54348 17.02 5.93348 17.02C6.26348 17.02 6.71348 16.63 7.19348 15.88C7.67348 15.13 8.15348 14.11 8.69348 12.88C8.72348 13.12 8.75348 13.24 8.81348 13.24C8.99348 13.24 9.44348 12.19 10.5535 10.42C12.2035 7.75 16.2835 2.62 17.3335 1.9C18.1135 1.36 18.7135 0.849999 19.1335 0.399999C19.0735 0.699999 19.0135 0.91 19.0135 0.999999C19.0135 1.09 19.0735 1.12 19.1335 1.12L19.9735 0.699999V0.819999C19.9735 0.969999 20.0035 1.06 20.0935 1.06C20.2135 1.06 20.6935 0.579999 20.7535 0.399999L20.6935 0.819999L21.7135 0.22L21.4735 0.76C21.7735 0.549999 22.0135 0.429999 22.1635 0.429999C22.3135 0.429999 22.4035 0.669999 22.4035 0.819999C22.4035 1.06 22.1935 1.39 21.8635 1.81C21.5035 2.29 20.6035 3.22 17.9035 6.31C16.7335 7.63 11.5435 14.68 10.5535 16.36L8.69348 19.51C7.88348 20.86 7.37348 21.73 7.10348 22.06C6.83348 22.39 6.50348 22.72 6.11348 23.02L5.84348 22.87L5.60348 23.02L5.33348 23.32Z" fill="white"/>
-                        </svg>
-                    </div>
-                </div>
-            </label>
-
-            <label class="block relative cursor-pointer">
-                <input type="radio" name="answer" value="{{ @$questions[$_GET['view']]->options[2]->option_key }}" data-question-id="{{ @$questions[$_GET['view']]->id }}" {{ \App\Helpers\AppHelper::get_user_answer(@$_GET['view'] ? $questions[$_GET['view']]->id : $questions->first()->id) == @$questions[$_GET['view']]->options[2]->option_key ? 'checked' : '' }} class="peer hidden answer-button" />
-                <div class="peer-checked:bg-[#09B7FC] peer-checked:text-white py-4 block text-center w-full h-[60px] bg-[#5F97F8] rounded-[20px] text-white transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
-                    {{ @$questions[$_GET['view']]->options[2]->option_value }}
-                    <div class="absolute right-8 top-1/2 transform -translate-y-1/2" style="display: none;">
-                        <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.33348 23.32C5.33348 23.05 5.30348 22.93 5.18348 22.93L4.49348 23.26C4.49348 23.11 4.40348 23.02 4.25348 22.96L4.01348 22.93C3.80348 22.93 3.71348 22.96 3.41348 23.14C3.32348 22.96 3.20348 22.75 3.11348 22.57C2.33348 21.07 1.52348 18.82 1.16348 17.83C0.983477 17.32 0.803477 16.27 0.593477 14.68C0.833477 14.83 1.01348 14.89 1.10348 14.89C1.22348 14.89 1.37348 14.68 1.49348 14.26C1.55348 14.35 1.67348 14.38 1.82348 14.38C1.91348 14.38 2.03348 14.35 2.09348 14.26L2.57348 13.54L3.11348 13.72H3.14348C3.20348 13.72 3.29348 13.63 3.44348 13.54C3.59348 13.45 3.71348 13.39 3.80348 13.39L3.89348 13.42C4.37348 13.66 4.70348 14.08 4.85348 14.74C5.21348 16.27 5.54348 17.02 5.93348 17.02C6.26348 17.02 6.71348 16.63 7.19348 15.88C7.67348 15.13 8.15348 14.11 8.69348 12.88C8.72348 13.12 8.75348 13.24 8.81348 13.24C8.99348 13.24 9.44348 12.19 10.5535 10.42C12.2035 7.75 16.2835 2.62 17.3335 1.9C18.1135 1.36 18.7135 0.849999 19.1335 0.399999C19.0735 0.699999 19.0135 0.91 19.0135 0.999999C19.0135 1.09 19.0735 1.12 19.1335 1.12L19.9735 0.699999V0.819999C19.9735 0.969999 20.0035 1.06 20.0935 1.06C20.2135 1.06 20.6935 0.579999 20.7535 0.399999L20.6935 0.819999L21.7135 0.22L21.4735 0.76C21.7735 0.549999 22.0135 0.429999 22.1635 0.429999C22.3135 0.429999 22.4035 0.669999 22.4035 0.819999C22.4035 1.06 22.1935 1.39 21.8635 1.81C21.5035 2.29 20.6035 3.22 17.9035 6.31C16.7335 7.63 11.5435 14.68 10.5535 16.36L8.69348 19.51C7.88348 20.86 7.37348 21.73 7.10348 22.06C6.83348 22.39 6.50348 22.72 6.11348 23.02L5.84348 22.87L5.60348 23.02L5.33348 23.32Z" fill="white"/>
-                        </svg>
-                    </div>
-                </div>
-            </label>
+                </label>
+            @endforeach
         </div>
+    </div>
+
+
+
         {{-- <div class="flex items-center mb-4">
             <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Green</label>
@@ -191,53 +219,72 @@
 
 @section('scripts')
 <script>
-    // Ambil semua elemen radio button
-    const radios = document.querySelectorAll('input[name="answer"]');
+$(document).ready(function () {
+    let timer = 0; // Timer awal
+    let interval;
 
-    // Fungsi untuk menyembunyikan dan menampilkan SVG berdasarkan status radio
-    function updateSVGDisplay() {
-        document.querySelectorAll('#radio-group svg').forEach((svg) => {
-            svg.parentElement.style.display = 'none'; // Sembunyikan semua SVG
-        });
+    // Fungsi untuk memulai timer
+    function startTimer() {
+        interval = setInterval(function () {
+            timer++;
+            console.log("Timer: " + timer + " detik");
 
-        // Periksa setiap radio button
-        radios.forEach((radio) => {
-            if (radio.checked) {
-                const svg = radio.closest('label').querySelector('svg');
-                svg.parentElement.style.display = 'block'; // Tampilkan SVG yang sesuai
-            }
-        });
+            // Tampilkan timer di elemen yang memiliki ID #timer-display
+            $('#timer-display').text(timer + " detik");
+        }, 1000);
     }
 
-    // Tambahkan event listener untuk perubahan status radio
-    radios.forEach((radio) => {
-        radio.addEventListener('change', updateSVGDisplay);
-    });
+    startTimer(); // Mulai timer saat halaman dimuat
 
-    // Panggil updateSVGDisplay untuk memeriksa status radio button saat halaman pertama kali dimuat
-    window.addEventListener('load', updateSVGDisplay);
-</script>
-<script>
-    $('.answer-button').on('click', function (e) {
-        var id = $(this).attr('data-question-id');
-        var answer = $(this).val();
-        var url = "{{ route('quiz.submit') }}";
+    // Event listener untuk klik pada setiap radio button
+    $('.answer-button').on('change', function () {
+        const questionId = $(this).data('question-id');
+        const answer = $(this).val();
 
+        // Logika skor berdasarkan timer
+        let score;
+        if (timer < 30) {
+            score = 10;
+        } else if (timer >= 30 && timer < 60) {
+            score = 8;
+        } else {
+            score = 5;
+        }
+
+        // Kirim data ke backend menggunakan jQuery AJAX
         $.ajax({
-            url : url,
-            method : "post",
-            data : {
-                _token: "{{ csrf_token() }}",
-                question_id:id,
-                answer:answer,
+            url: "{{ route('quiz.submit') }}", // URL untuk mengirim data
+            method: "POST", // HTTP method
+            data: {
+                _token: "{{ csrf_token() }}", // CSRF token Laravel
+                question_id: questionId, // ID pertanyaan
+                answer: answer, // Jawaban yang dipilih
+                score: score // Skor berdasarkan timer
             },
             success: function (response) {
+                console.log("Jawaban berhasil dikirim:", response);
 
+                // Reset timer
+                clearInterval(interval);
+                timer = 0;
+                startTimer(); // Mulai timer kembali
             },
-            error: function (response) {
-
+            error: function (xhr, status, error) {
+                console.error("Terjadi kesalahan saat mengirim jawaban:", error);
             }
-        })
+        });
+
+        // Menampilkan atau menyembunyikan SVG berdasarkan apakah radio button dipilih
+        $(this).closest('label').find('.svg-container').show(); // Menampilkan SVG yang terkait
+        $(this).closest('label').siblings().find('.svg-container').hide(); // Menyembunyikan SVG di label lainnya
+
+        // Mengubah background elemen div yang terkait dengan radio button yang dipilih
+        $(this).closest('label').find('div').css('background-color', '#09B7FC'); // Mengubah background menjadi #09B7FC
+
+        // Mengembalikan background elemen radio button lainnya ke warna default
+        $(this).closest('label').siblings().find('div').css('background-color', '#5F97F8'); // Mengatur background ke warna default
     });
+});
+
 </script>
 @endsection

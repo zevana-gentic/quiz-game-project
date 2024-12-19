@@ -23,9 +23,14 @@
 <body class="relative font-source-poppins min-h-screen">
 
     <div class="mb-32 relative min-h-screen overflow-x-hidden container w-full max-w-md mx-auto h-full bg-white container-color">
-        {{-- <audio id="background-audio" loop autoplay>
-            <source src="/assets/test-sound.mp4" type="audio/mp4">
-        </audio> --}}
+        @if (Auth::check())
+        {{-- @dd(Auth::user()->sound_setting === 1) --}}
+            @if (Auth::user()->sound_setting === 1)
+                <audio id="background-audio" loop autoplay>
+                    <source src="{{ asset('assets/sound.mp3') }}" type="audio/mp4">
+                </audio>
+            @endif
+        @endif
 
         <main class="relative z-10">
             @yield('content')

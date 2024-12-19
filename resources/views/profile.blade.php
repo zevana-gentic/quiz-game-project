@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        @if ($user->sound_setting === '1')
+        @if ($user->sound_setting === 1)
             <form action="{{ route('toggle-sound', ['toggle_sound' => 0]) }}" method="POST" class="block animate-scaleUp">
                 @csrf
                 <button type="submit" class="relative h-[80px] z-0 w-full text-white bg-[#6CA2FF] rounded-[20px] transform transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">

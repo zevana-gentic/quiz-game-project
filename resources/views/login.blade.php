@@ -1,8 +1,74 @@
 @extends('layouts.app')
 
+@section('css')
+    <style>
+        .dots-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .dot {
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+            border-radius: 10px;
+            background-color: #b3d4fc;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        .dot:last-child {
+            margin-right: 0;
+        }
+
+        .dot:nth-child(1) {
+            animation-delay: -0.3s;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: -0.1s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.1s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                background-color: #b3d4fc;
+                box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+            }
+
+            50% {
+                transform: scale(1.2);
+                background-color: #6793fb;
+                box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+            }
+
+            100% {
+                transform: scale(0.8);
+                background-color: #b3d4fc;
+                box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+            }
+        }
+    </style>
+@endsection
 @section('content')
+
 @if (Session::get('success'))
-    <a href="{{ route('home') }}" class="">
+    <div id="loader-success" class="min-h-[874px] flex flex-col items-center justify-center">
+        <section class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </section>
+    </div>
+    <a href="{{ route('home') }}" class="" id="success-content" style="display: none;">
         <div class="min-h-[874px] flex flex-col items-center justify-center border">
             <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_221_36)">
@@ -20,7 +86,16 @@
         </div>
     </a>
 @elseif (Session::get('error') || $errors->any())
-    <a href="{{ route('login.index') }}" class="">
+    <div id="loader-error" class="min-h-[874px] flex flex-col items-center justify-center">
+        <section class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </section>
+    </div>
+    <a href="{{ route('login.index') }}" class="" id="error-content" style="display: none;">
         <div class="min-h-[874px] flex flex-col items-center justify-center border">
             <div class="transition ease-in-out delay-150">
                 <svg width="209" height="209" viewBox="0 0 209 209" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,9 +107,12 @@
             </div>
             @error('email')
                 <div class="mt-[150px] text-[#E45D5D]">
-                    {{ $message }}
+                    {{{ $message }}}
                 </div>
             @enderror
+                <div class="mt-[150px] text-[#E45D5D]">
+                    {{ Session::get('error') }}
+                </div>
         </div>
     </a>
 @else
@@ -71,4 +149,32 @@
 @endif
 
 </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loaderSuccess = document.getElementById("loader-success");
+            const successContent = document.getElementById("success-content");
+            const loaderError = document.getElementById("loader-error");
+            const errorContent = document.getElementById("error-content");
+
+            if (loaderSuccess && successContent) {
+                setTimeout(() => {
+                    loaderSuccess.style.display = "none";
+
+                    successContent.style.display = "block";
+                }, 3000); // 3000 ms = 3 detik
+            }
+
+            if (loaderError && errorContent) {
+                setTimeout(() => {
+                    loaderError.style.display = "none";
+
+                    errorContent.style.display = "block";
+                }, 3000);
+            }
+        });
+
+    </script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\User;
+use App\Models\UserScore;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -19,23 +20,26 @@ class ProfileController extends Controller
     public function toggle_sound(Request $request)
     {
         $user = User::find(Auth::id());
-        if ($request->toggle_sound === '1') {
-            $user->update([
-                'sound_setting' => '1'
-            ]);
-        } else {
-            $user->update([
-                'sound_setting' => '0'
-            ]);
-        }
-        $data['user'] = $user;
 
-        return view('profile', $data);
+        if ($user->sound_setting === 1) {
+            $user->update([
+                'sound_setting' => 0
+            ]);
+
+            return redirect()->route('profile.index');
+        }
+
+        $user->update([
+            'sound_setting' => 1
+        ]);
+
+        return redirect()->route('profile.index');
     }
 
     public function score_history(Request $request)
     {
         $data['page_title'] = 'Riwayat Skor';
+        $data['user_scores'] = UserScore::where('user_id', Auth::id())->get();
 
         return view('score-history', $data);
     }

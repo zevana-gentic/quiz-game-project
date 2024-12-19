@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Validator;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Question;
 use App\Models\UserScore;
@@ -19,6 +20,10 @@ class QuizController extends Controller
         $data['user'] = Auth::user()->id;
 
         $questions = Question::with(['options']);
+
+        $current_time =  Carbon::now()->toTimeString();
+        $request->session()->forget('current_time', $current_time);
+        $request->session()->put('current_time', $current_time);
 
         if (Session::get('questions') == null) {
             $request->session()->put('questions', $questions->inRandomOrder()->limit(10)->get());
@@ -57,7 +62,11 @@ class QuizController extends Controller
 
             if ($user_answer !== null) {
                 if ($question->answer_key == $request->answer) {
-                    $user_answer->update(['answer' => $request->answer, 'score' => 1]);
+
+                    $user_answer->update([
+                        'answer' => $request->answer,
+                        'score' => $request->score
+                    ]);
                 } else {
                     $user_answer->update(['answer' => $request->answer, 'score' => 0]);
                 }
@@ -67,7 +76,7 @@ class QuizController extends Controller
                         'user_id'       => Auth::id(),
                         'question_id'   => $request->question_id,
                         'answer'        => $request->answer,
-                        'score'         => 1
+                        'score'         => $request->score
                     ]);
                 } else {
                     UserAnswer::create([

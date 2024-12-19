@@ -10,16 +10,11 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\DashboardController;
 
-Route::get('/', function () {
-    return view('login');
-})->name('login');
-
-
 Route::view('home', 'home', ['page_title' => 'Halaman Utama'])->name('home');
 Route::view('quiz', 'quiz')->name('quiz');
 
 Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'login_index')->name('login.index');
+    Route::get('/', 'login_index')->name('login.index');
     Route::post('/login-submit', 'login_submit')->name('login.submit');
     Route::get('/register', 'register_index')->name('register.index');
     Route::post('/register-submit', 'register_submit')->name('register.submit');

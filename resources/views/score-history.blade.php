@@ -30,12 +30,17 @@
     </div>
 
     <div class="space-y-4">
-        <div class="relative h-[74px] z-0 w-full text-white bg-[#5F97F8] rounded-[20px] py-2 px-5">
-            <div class="flex justify-between items-center">
-                <div class="text-[#FFFFFF] text-[20px]">Kuis 1</div>
-                <div class="font-semibold text-[#FFFFFF] text-[40px]">100</div>
+        @foreach ($user_scores as $user_score)
+            <div class="relative h-[74px] z-0 w-full text-white bg-[#5F97F8] rounded-[20px] py-2 px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col">
+                        <div class="text-[#FFFFFF] text-[20px]">Kuis {{ @$loop->iteration }}</div>
+                        <div class="font-light text-[12px]">{{ \Carbon\Carbon::parse(@$user_score->created_at)->translatedFormat('j F Y') }}</div>
+                    </div>
+                    <div class="font-semibold text-[#FFFFFF] text-[40px]">{{ @$user_score->total_score }}</div>
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
 @endsection

@@ -84,11 +84,11 @@ class AuthController extends Controller
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('dashboard');
             } else if (Auth::user()->role === 'user') {
-                return redirect()->route('login')->with(['success' => 'Login Berhasil']);
+                return redirect()->route('login.index')->with(['success' => 'Login Berhasil']);
             }
         }
 
-        return redirect()->route('login')->with(['error' => 'Email atau password tidak cocok'])->onlyInput('email');
+        return redirect()->route('login.index')->with(['error' => 'Email atau password tidak cocok'])->onlyInput('email');
     }
 
     public function logout(Request $request)
@@ -97,6 +97,6 @@ class AuthController extends Controller
 
         Auth::logout($user);
 
-        return redirect()->route('login');
+        return redirect()->route('login.index');
     }
 }
