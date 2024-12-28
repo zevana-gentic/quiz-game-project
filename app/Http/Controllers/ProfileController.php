@@ -39,7 +39,7 @@ class ProfileController extends Controller
     public function score_history(Request $request)
     {
         $data['page_title'] = 'Riwayat Skor';
-        $data['user_scores'] = UserScore::where('user_id', Auth::id())->get();
+        $data['user_scores'] = UserScore::where('user_id', Auth::id())->latest()->get();
 
         return view('score-history', $data);
     }

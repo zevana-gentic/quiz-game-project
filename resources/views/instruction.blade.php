@@ -9,10 +9,10 @@
 @endsection
 
 @section('content')
-<div class="py-[50px] px-[50px]">
+<div class="py-[30px] px-[40px]">
     <div id="steps-container">
         <!-- Step 1 -->
-        <div id="step-1" class="flex flex-col gap-5">
+        <div id="step-1" class="flex flex-col gap-5 min-h-[100vh]">
             <div class="container">
                 <div class="font-medium text-[#787878]">Step 1</div>
                 <div class="font-bold text-[#787878] text-[25px]">Mengerjakan Kuis</div>
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Step 2 -->
-        <div id="step-2" class="flex-col gap-5 hidden">
+        <div id="step-2" class="flex-col gap-3 hidden">
             <div class="container">
                 <div class="font-medium text-[#787878]">Step 2</div>
                 <div class="font-bold text-[#787878] text-[25px]">Navigasi</div>
@@ -39,7 +39,7 @@
             <div class="flex justify-center">
                 <img src="assets/instruction-2.png" alt="">
             </div>
-            <div class="container min-h-[70px]">
+            <div class="container min-h-[60px]">
                 <ol class="text-[#5D5D5D] list-decimal">
                     <li>Tombol Prev soal.</li>
                     <li>Nomor soal yang sedang dikerjakan.</li>

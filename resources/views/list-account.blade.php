@@ -35,7 +35,7 @@
                                             {{ @$account->name }}</td>
                                         </div>
                                     <td>{{ @$account->email }}</td>
-                                    <td>3x</td>
+                                    <td>{{ @$account->user_scores_count }} {{ @$account->user_scores_count == 0 ? '' : 'x' }}</td>
                                 </tr>
                             @empty
                                 <tr>

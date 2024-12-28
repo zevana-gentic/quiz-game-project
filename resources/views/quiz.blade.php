@@ -113,7 +113,7 @@
         {{-- <img src="https://placehold.co/300x300" alt=""> --}}
         {{-- <img src="{{ asset('assets/giphy.webp') }}" alt=""> --}}
 
-    <div class="font-medium text-[#787878] {{ @$questions[$_GET['view']]->image !== null ? 'mb-5' : '' }}">Question {{ @$_GET['view'] ? @$_GET['view']+1 : '1' }} of 10</div>
+    <div class="font-medium text-[#787878] {{ @$questions[$_GET['view']]->image !== null ? 'mb-5' : '' }}">Question {{ @$_GET['view'] ? @$_GET['view']+1 : '1' }} of {{ @$questions->count() }}</div>
 
     @if (@$questions[$_GET['view']]->image === null)
         <div class="w-full min-h-[100px]">
