@@ -12,6 +12,13 @@ class ScoreController extends Controller
     {
         $data['page_title'] = 'Kelola Skor';
         $user_scores = UserScore::with(['user'])->orderBy('id', 'asc');
+
+        if ($request->q) {
+            $user_scores = $user_scores->whereHas('user', function ($q) use($request) {
+                $q->where('name', 'like', '%' . $request->q . '%');
+            });
+        }
+
         $data['user_scores'] = $user_scores->paginate(20);
 
         return view('list-score', $data);

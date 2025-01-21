@@ -12,6 +12,11 @@ class AccountController extends Controller
     {
         $data['page_title'] = 'Kelola User';
         $accounts = User::withCount('user_scores')->where('role', 'user')->orderBy('id', 'asc');
+
+        if ($request->q) {
+            $accounts = $accounts->where('name', 'like', '%' . $request->q . '%');
+        }
+
         $data['accounts'] = $accounts->paginate(20);
 
         return view('list-account', $data);

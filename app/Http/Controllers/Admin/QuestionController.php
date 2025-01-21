@@ -18,6 +18,11 @@ class QuestionController extends Controller
     {
         $data['page_title'] = 'Kelola Kuis';
         $questions = Question::orderBy('id', 'asc');
+
+        if ($request->q) {
+            $questions = $questions->where('question_value', 'like', '%' . $request->q . '%');
+        }
+
         $data['questions'] = $questions->paginate(20);
 
         return view('list-question', $data);

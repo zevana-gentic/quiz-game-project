@@ -13,7 +13,7 @@ class DashboardController extends Controller
     {
         $data['page_title'] = 'Dashboard Admin';
         $data['users']  = User::where('role', 'user')->latest()->limit(10)->get();
-        $data['questions'] = Question::limit(10)->get();
+        $data['questions'] = Question::limit(5)->get();
 
         return view('dashboard', $data);
     }
